@@ -25,34 +25,43 @@ public class PaintBrush {
     }
     
     public void drawMountaing(){
+        for(int i=0; i<3; i++){
+            int spa = i*80;
         Polygon triangle = new Polygon();
-        triangle.addPoint(15, 120);
-        triangle.addPoint(100, 40);
-        triangle.addPoint(180, 120);
+        triangle.addPoint(15+spa, 120);
+        triangle.addPoint(100+spa, 40);
+        triangle.addPoint(180+spa, 120);
         g.setColor(COLOR_Mountaing);
         g.fillPolygon(triangle);
+        }
+        
     }
     
     public void drawTree(){
-        int start = 200;
+        int start = 100;
         int top = 50;
         
-        g.setColor(COLOR_BROWN);
-        g.fillRect(start, top, 26, 40);
-        //g.fillRect(start-10, top+110, 26, 40);
         
-        g.setColor(COLOR_TREE);
-        for(int i=0; i<5; i++){
-            Polygon triangle = new Polygon();
-            int heigth =50;
-            int width = 70;
-            int spacing = 15;
-            
-            triangle.addPoint(start, top + (spacing * i));
-            triangle.addPoint(start - (width/2), top + heigth + (spacing*i));
-            triangle.addPoint(start + (width/2), top + heigth + (spacing*i));
-            
-            g.fillPolygon(triangle);
+        for(int j=0; j<5; j++){
+            int spa = j*70;
+            g.setColor(COLOR_BROWN);
+            g.fillRect(start-10+spa, top+110, 26, 40);
+        
+        
+        
+            g.setColor(COLOR_TREE);
+            for(int i=0; i<5; i++){
+                Polygon triangle = new Polygon();
+                int heigth =50;
+                int width = 70;
+                int spacing = 15;
+
+                triangle.addPoint(start+spa, top + (spacing * i));
+                triangle.addPoint((start - (width/2))+spa, top + heigth + (spacing*i));
+                triangle.addPoint((start + (width/2))+spa, top + heigth + (spacing*i));
+
+                g.fillPolygon(triangle);
+            }
         }
-    }
+   }
 }
