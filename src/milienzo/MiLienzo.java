@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.event.*;
+import javax.swing.Timer;
 
 public class MiLienzo extends JPanel implements KeyListener, ActionListener{
     
@@ -12,6 +13,8 @@ public class MiLienzo extends JPanel implements KeyListener, ActionListener{
     public MiLienzo (){
         setPreferredSize(new Dimension(Config.WINDOW_W, Config.WINDOW_H));
         setBackground(Color.GRAY);
+        Timer timer = new Timer(100,this);
+        timer.start();
     }
     
     @Override //Siempre existe este método
@@ -57,9 +60,15 @@ public class MiLienzo extends JPanel implements KeyListener, ActionListener{
         repaint();
     }
 
-        @Override
+    @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
+        int x = pSun.getX();
+        int y = pSun.getY();
+        x=x+1;
+        pSun.setX(x);
+        y=y+1;
+        pSun.setY(y);
+        repaint();
         
     }
     @Override
